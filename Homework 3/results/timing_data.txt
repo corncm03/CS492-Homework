@@ -1,0 +1,69 @@
+Serial PI Calculation
+---------------------
+N = 100000
+Approximate PI = 3.141592653598162
+Execution Time = 0.0003290010 seconds
+
+
+MPI PI Calculation
+------------------
+N = 100000
+Processes = 8
+Approximate PI = 3.141592653598135
+Execution Time = 0.0246128780 seconds
+
+
+MPI PI Calculation
+------------------
+N = 100000
+Processes = 10
+Approximate PI = 3.141592653598127
+Execution Time = 0.0347656090 seconds
+
+
+MPI PI Calculation
+------------------
+N = 100000
+Processes = 16
+Approximate PI = 3.141592653598126
+Execution Time = 0.0339451160 seconds
+
+
+MPI PI Calculation
+------------------
+N = 100000
+Processes = 32
+Approximate PI = 3.141592653598126
+Execution Time = 0.0657628830 seconds
+
+
+OpenMP PI Calculation
+---------------------
+N = 100000
+Threads = 8
+Approximate PI = 3.141592653598125
+Execution Time = 0.0003482320 seconds
+
+
+OpenMP PI Calculation
+---------------------
+N = 100000
+Threads = 10
+Approximate PI = 3.141592653598121
+Execution Time = 0.0003913520 seconds
+
+
+OpenMP PI Calculation
+---------------------
+N = 100000
+Threads = 16
+Approximate PI = 3.141592653598125
+Execution Time = 0.0006076620 seconds
+
+
+OpenMP PI Calculation
+---------------------
+N = 100000
+Threads = 32
+Approximate PI = 3.141592653598127
+Execution Time = 0.0010204940 seconds
