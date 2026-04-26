@@ -1,20 +1,15 @@
-/*
-    File: pi_serial.cpp
-    Version: 1.0
 
-    CS492 - Homework Assignment 03
+// File: pi_serial.cpp
+// Version: 1.0
+//Description:
+// This program calculates an approximate value of PI using a serial
+// loop. I am using the midpoint rectangle method because each loop
+// iteration can be handled independently later when I move this to
+// MPI and OpenMP.
+//
+// This version runs completely serial and is used as the baseline
+// for comparing performance with MPI and OpenMP implementations.
 
-    This program calculates an approximate value of PI using a serial
-    loop. I am using the midpoint rectangle method because each loop
-    iteration can be handled independently later when I move this to
-    MPI and OpenMP.
-
-    Compile:
-        g++ src/pi_serial.cpp -o bin/pi_serial
-
-    Run:
-        ./bin/pi_serial
-*/
 
 #include <cstdio>
 #include <chrono>

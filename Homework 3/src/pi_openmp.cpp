@@ -1,26 +1,17 @@
-/*
-    File: pi_openmp.cpp
-    Version: 1.0
-
-    CS492 - Homework Assignment 03
-
-    This program calculates an approximate value of PI using OpenMP.
-    I used a parallel for loop with reduction because each loop iteration
-    is independent, but all threads still need to safely add their partial
-    sums into one final sum.
-
-    I chose reduction instead of critical or atomic because reduction lets
-    each thread build its own private sum first, then OpenMP combines the
-    results at the end. This avoids making every thread wait to update the
-    same shared variable during every loop iteration.
-
-    Compile:
-        g++ -fopenmp src/pi_openmp.cpp -o bin/pi_openmp
-
-    Run:
-        export OMP_NUM_THREADS=8
-        ./bin/pi_openmp
-*/
+// File: pi_openmp.cpp
+// Version: 1.0
+// Description:
+// This program calculates an approximate value of PI using OpenMP.
+// I used a parallel for loop to split the loop iterations across threads.
+//
+// Each thread computes part of the sum, and I use reduction so each thread
+// has a private copy of the sum variable. OpenMP then combines all of the
+// partial sums safely at the end.
+//
+// I chose reduction instead of critical or atomic because it avoids
+// forcing threads to wait every time they update the sum.
+//
+// I also used omp_get_wtime() to measure execution time
 
 #include <cstdio>
 #include <omp.h>

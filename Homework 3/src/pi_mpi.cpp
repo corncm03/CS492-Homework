@@ -1,23 +1,24 @@
-/*
-    File: pi_mpi.cpp
-    Version: 1.0
+// File: pi_mpi.cpp
+// Version: 1.0
+// Description:
+// This program calculates an approximate value of PI using MPI.
+// I split the loop iterations across all MPI processes using a cyclic
+// distribution. That means each process starts at its rank number and
+// then skips ahead by the total number of processes.
+//
+// I chose this approach because each PI calculation loop iteration is
+// independent, so the work can be divided without one process depending
+// on another during the main calculation.
+//
+// Each process calculates its own local sum. Then I use MPI_Reduce to
+// combine all local sums into one total sum on the master process.
+// Only rank 0 prints the final PI value, process count, and execution time
+// so the output does not get cluttered.
+//
+// I used MPI_Wtime() to measure execution time and double values to keep
+// the approximation accurate enough for this assignment.
 
-    CS492 - Homework Assignment 03
 
-    This program calculates an approximate value of PI using MPI.
-    I split the total number of iterations across all processes.
-    Each process computes its own local sum, and then I combine
-    the results using MPI_Reduce.
-
-    I chose this approach because the PI calculation loop has no
-    dependencies between iterations, so it is easy to divide the work.
-
-    Compile:
-        mpic++ src/pi_mpi.cpp -o bin/pi_mpi
-
-    Run (example with 8 processes):
-        mpirun -np 8 ./bin/pi_mpi
-*/
 
 #include <cstdio>
 #include <mpi.h>
