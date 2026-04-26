@@ -1,0 +1,37 @@
+CS492 Homework 03 - PI Timing Results
+
+N = 100,000
+
+Serial:
+Time = ___0.0003290010___ seconds
+
+MPI:
+8 processes  = ___0.0246128780___ seconds
+10 processes = ___0.0347656090___ seconds
+16 processes = ___0.0339451160___ seconds
+32 processes = ___0.0657628830___ seconds
+
+OpenMP:
+8 threads  = ___0.0003482320___ seconds
+10 threads = ___0.0003913520___ seconds
+16 threads = ___0.0006076620___ seconds
+32 threads = ___0.0010204940___ seconds
+
+Speedup Formula:
+Speedup = Serial Time / Parallel Time
+
+Computed Speedup:
+
+MPI:
+8 processes  = 0.0134
+10 processes = 0.0095
+16 processes = 0.0097
+32 processes = 0.0050
+
+OpenMP:
+8 threads  = 0.9448
+10 threads = 0.8407
+16 threads = 0.5414
+32 threads = 0.3224
+
+For this problem size, the serial version was faster than both MPI and OpenMP. I think this happened because N = 100,000 is small enough that the actual PI calculation finishes very quickly. The overhead of starting MPI processes, creating OpenMP threads, and combining partial sums costs more time than the work saved by parallelizing the loop. As the process/thread count increased, the runtime generally became worse, especially for MPI, because the overhead increased while the amount of work per process became smaller.
